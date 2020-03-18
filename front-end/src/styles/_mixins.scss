@@ -1,0 +1,146 @@
+@mixin middle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin centerer {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin center($align, $position) {
+
+	position: $position;
+
+	@if $align == 'vertical' {
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+	@else if $align == 'horizontal' {
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		transform: translate(-50%);
+	}
+	@else if $align == 'both' {
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+	padding-top: $top;
+	padding-right: $right;
+	padding-bottom: $bottom;
+	padding-left: $left;
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+	margin-top: $top;
+	margin-right: $right;
+	margin-bottom: $bottom;
+	margin-left: $left;
+}
+
+
+@mixin text-align ($option) {
+	text-align: $option;
+}
+
+@mixin border-radius ($option) {
+	border-radius: $option;
+}
+
+@mixin border-radius-side($topleft, $topright, $bottomright, $bottomleft) {
+	border-top-left-radius: $topleft;
+	border-top-right-radius: $topright;
+	border-bottom-right-radius: $bottomright;
+	border-bottom-left-radius: $bottomleft;
+	-webkit-border-top-left-radius: $topleft;
+	-webkit-border-top-right-radius: $topright;
+	-webkit-border-bottom-right-radius: $bottomright;
+	-webkit-border-bottom-left-radius: $bottomleft;
+	-moz-border-radius-topleft: $topleft;
+	-moz-border-radius-topright: $topright;
+	-moz-border-radius-bottomright: $bottomright;
+	-moz-border-radius-bottomleft: $bottomleft;
+}
+
+// css checkbox mixin
+@mixin css-checkbox(
+		$size: '16px',
+		$selectedColor: #444,
+		$checkColor: #FFF,
+		$valign: 'middle',
+		$rounded: rounded
+	) {
+	display: none;
+
+	&:checked + i {
+		background: #{$selectedColor};
+		border-color: #{$selectedColor};
+
+		&:hover:after { opacity: 1; }
+
+		&:after {
+			opacity: 1;
+			border-color: #{$checkColor};
+		}
+	}
+
+	+ i {
+		box-sizing: border-box;
+		&:before, &:after {
+			box-sizing: border-box;
+		}
+	}
+	+ i {
+		position: relative;
+		display: inline-block;
+		top: -1px;
+		width: #{$size};
+		height: #{$size};
+		margin: 0;
+		vertical-align: #{$valign};
+		border: 1px solid #999;
+		transition: background 200ms ease;
+
+	@if $rounded == "circle" {
+		border-radius: 10em; 
+	} @else if $rounded == "rounded" {
+		border-radius: .2em; 
+	} @else {
+		border-radius: 0; 
+	}    
+		
+		background: #F9F9F9;
+		font-size: #{$size};
+		cursor: pointer;
+
+		&:hover:after { opacity: .2; }
+
+		&:after {
+			content: '';
+			opacity: 0;
+			transform: translateZ(1px) rotate(-45deg);
+			outline: 1px solid transparent; // hack to prevent antialias atrifacts in firefox
+			position: absolute;
+			top: 22%;
+			left: 15%;
+			width: .68em;
+			height: .4em;
+			border: .15em solid #222;
+			border-top: none;
+			border-right: none;
+			background: rgba(0, 0, 0, 0);
+		}
+	}
+}

@@ -1,0 +1,51 @@
+//======================== VARIABLES HERE ========================
+//================================================================
+
+$grid__bp-sm: 576;
+$grid__bp-md: 768;
+$grid__bp-lg: 992;
+$grid__bp-xl: 1200;
+$grid__cols: 12;
+
+$map-grid-props: (
+		'': 0,
+		'-sm': $grid__bp-sm,
+		'-md': $grid__bp-md,
+		'-lg': $grid__bp-lg,
+		'-xl': $grid__bp-xl
+);
+
+$full: 100%;
+$half: 50%;
+$quarter: 25%;
+$zero: 0;
+$one: 1;
+
+$z-indexs : (
+	'max-above':			99999,
+	'above-all':			9999,
+	'above':				99,
+	'top':					1,
+	'ground':				0
+);
+
+$inner-gutter:							20px;
+$inner-gutter--half:					$inner-gutter / 2;
+$inner-gutter--double:					$inner-gutter * 2;
+$inner-gutter--tripple:					$inner-gutter * 3;
+$inner-gutter--quarter:					$inner-gutter / 4;
+
+$font-family-global:					'Titillium Web', sans-serif;
+
+
+$marker-size-width:						18px;
+$marker-size-height:					$marker-size-width;
+
+$side-container-width:					200px;
+$bottom-container-height:				$side-container-width;
+
+$splash-screen-mobile-height:			812px;
+$splash-screen-mobile-height-max:		$splash-screen-mobile-height / 2;
+
+$button-primary-border-radius:			5px;
+$button-primary-width:					150px;

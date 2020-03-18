@@ -1,0 +1,33 @@
+//======================== OBJECTS HERE ========================
+//================================================================
+
+.button-primary {
+	@include padding($inner-gutter--half, $inner-gutter--half, $inner-gutter--half, $inner-gutter--half);
+	@include border-radius($button-primary-border-radius);
+
+	width: $button-primary-width;
+	color: $color-global-positive;
+	background-color: $color-global-middle;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	border: 2px solid $color-global-middle;
+	transition: all .3s;
+	cursor: pointer;
+	outline: $zero;
+
+	&:hover {
+		background-color: $color-global-positive;
+		color: $color-global-dark;
+	}
+
+	&--alt {
+		background-color: $color-global-positive;
+		color: $color-global-dark;
+
+		&:hover {
+			color: $color-global-positive;
+			background-color: $color-global-middle;
+		}
+	}
+}
