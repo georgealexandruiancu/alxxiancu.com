@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Navigation from "../components/Navigation";
+import Slider from "../components/Slider";
 
 import "../../styles/pages/HomepageClient.css";
 
@@ -16,6 +17,7 @@ class HomepageClient extends Component {
 		return (
 			<>
 				<Navigation />
+				<Slider />
 			</>
 		);
 	}

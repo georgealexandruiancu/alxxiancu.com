@@ -1,0 +1,134 @@
+@import "../colors";
+@import "../variables";
+
+@import "../mixins";
+
+@keyframes changeHeight {
+	0% {
+		height: 0px;
+	}
+
+	25% {
+		height: $quarter;
+	}
+
+	50% {
+		height: $half;
+	}
+
+	75% {
+		height: $half + $quarter;
+	}
+
+	100% {
+		height: $full;
+	}
+}
+
+.slider {
+	&-wrapper {
+		@include center(vertical, fixed);
+
+		position: fixed;
+		left: $c-slider-left-position;
+	}
+
+	&-item {
+		margin-top: $c-slider-inner-gutter--half;
+		cursor: pointer;
+
+		&__square {
+			width: $c-slider-square-size;
+			height: $c-slider-square-size;
+			background: $c-slider-square-background-color;
+			position: relative;
+			display: inline-block;
+			// transition: all .3s;
+
+			&.slider-item__square--active {
+				background: $c-slider-square-background-color--alt;
+				margin-bottom: $c-slider-inner-gutter--quarter + 50px;
+
+				&:last-of-type {
+					margin-top: $c-slider-inner-gutter--quarter + 50px;
+				}
+
+				&::after {
+					@include center(horizontal, absolute);
+
+					top: 20px + $c-slider-inner-gutter--quarter;
+					content: "";
+					display: block;
+					width: 4px;
+					height: $c-slider-bar-size;
+					background: $c-slider-square-background-color--alt;
+					animation: changeHeight .3s linear;
+				}
+			}
+		}
+
+		&__title {
+			display: inline-block;
+			vertical-align: top;
+			line-height: $c-slider-square-size;
+			color: white;
+			margin-left: $inner-gutter--half;
+			transition: all .3s;
+
+			&.slider-item__title--active {
+				color: $c-slider-square-background-color--alt;
+			}
+		}
+
+		&:last-of-type {
+			vertical-align: bottom;
+
+			.slider-item__square {
+				&.slider-item__square--active {
+					background: $c-slider-square-background-color--alt;
+					margin-top: $c-slider-inner-gutter--quarter + 50px;
+					margin-bottom: $zero;
+
+					&::before {
+						@include center(horizontal, absolute);
+
+						top: -$c-slider-inner-gutter--quarter - 60px;
+						content: "";
+						display: block;
+						width: 4px;
+						height: 60px;
+						background: $c-slider-square-background-color--alt;
+					}
+
+					&::after {
+						content: "";
+						width: $zero;
+						height: $zero;
+						animation: changeHeight .3s linear;
+					}
+				}
+			}
+
+			.slider-item__title {
+				position: absolute;
+				bottom: 5px;
+			}
+		}
+
+		&:hover {
+			.slider-item__square {
+				background-color: $c-slider-square-background-color--alt;
+			}
+
+			.slider-item__title {
+				color: $c-slider-square-background-color--alt;
+			}
+		}
+	}
+}
+
+@media (max-width: $tablet-landscape) {
+	.slider-wrapper {
+		display: none;
+	}
+}

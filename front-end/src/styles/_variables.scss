@@ -1,10 +1,17 @@
 //======================== VARIABLES HERE ========================
 //================================================================
-$grid__bp-sm: 576;
-$grid__bp-md: 768;
-$grid__bp-lg: 992;
-$grid__bp-xl: 1200;
-$grid__cols: 12;
+$grid__bp-sm: 				576;
+$grid__bp-md: 				768;
+$grid__bp-lg: 				992;
+$grid__bp-xl: 				1200;
+$grid__cols: 				12;
+
+$mobile-portrait: 			414px;
+$mobile-landscape: 			812px;
+$tablet-portrait: 			834px;
+$tablet-landscape: 			1112px;
+$laptop-landscape: 			1440px;
+$desktop-landscape: 		1920px;
 
 $map-grid-props: (
 		'': 0,
@@ -14,12 +21,12 @@ $map-grid-props: (
 		'-xl': $grid__bp-xl
 );
 
-$full: 100%;
-$half: 50%;
-$quarter: 25%;
+$full: 						100%;
+$half: 						50%;
+$quarter: 					25%;
 
-$zero: 0;
-$one: 1;
+$zero: 						0;
+$one: 						1;
 
 $z-indexs : (
 	'max-above':			99999,
@@ -82,3 +89,14 @@ $c-navigation-text-color--alt:			$color-global-middle;
 $c-navigation-bar-height:				$c-navigation-divider-height;
 $c-navigation-bars-width:				35px;
 // ./ Navigation
+
+// - Slider
+$c-slider-left-position:				$inner-gutter;
+$c-slider-inner-gutter:					$inner-gutter;
+$c-slider-inner-gutter--half:			$c-slider-inner-gutter / 2;
+$c-slider-inner-gutter--quarter:		$c-slider-inner-gutter / 4;
+$c-slider-square-size:					20px;
+$c-slider-square-background-color:		$color-global-positive;
+$c-slider-square-background-color--alt:	$color-global-middle;
+$c-slider-bar-size:						60px;
+// ./ Slider
