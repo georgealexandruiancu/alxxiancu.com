@@ -1,15 +1,16 @@
-.u-pos {
+//======================== MIXINS HERE ========================
+//================================================================
 
-	&-absolute {
-		position: absolute;
+.u-text-align {
+	&--center {
+		text-align: center;
 	}
 
-	&-fixed {
-		position: fixed;
+	&--left {
+		text-align: left;
 	}
 
-	&-relative {
-		position: relative;
+	&--right {
+		text-align: right;
 	}
-
 }
