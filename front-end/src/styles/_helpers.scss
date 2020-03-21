@@ -14,3 +14,12 @@
 		text-align: right;
 	}
 }
+
+.u-hide {
+	display: none;
+}
+
+.u-hide--alt {
+	visibility: hidden;
+	opacity: $zero;
+}

@@ -560,6 +560,15 @@
   text-align: right;
 }
 
+.u-hide {
+  display: none;
+}
+
+.u-hide--alt {
+  visibility: hidden;
+  opacity: 0;
+}
+
 html, body {
   font-family: "Poppins", sans-serif;
   padding: 0;

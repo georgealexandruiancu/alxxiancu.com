@@ -65,10 +65,12 @@ $font-family-global:					'Poppins', sans-serif;
 
 // - Navigation
 $c-navigation-z-index:					map-get($z-indexs, above-all);
+$c-navigation-full-z-index:				map-get($z-indexs, max-above);
 $c-navigation-max-width:				340px;
 $c-navigation-gutter:					$inner-gutter;
 $c-navigation-quarter-gutter:			$c-navigation-gutter / 4;
 $c-navigation-background-color: 		$color-global-negative;
+$c-navigation-full-background-color: 	rgba($color-global-negative, .7);
 $c-navigation-text-color:				$color-global-positive;
 $c-navigation-title-font-size:			map-get($font-sizes, l);
 $c-navigation-title-font-weight:		map-get($font-weights, bold);
@@ -76,6 +78,7 @@ $c-navigation-title-letter-spacing:		map-get($letter-spacings, medium);
 $c-navigation-divider-width:			75px;
 $c-navigation-divider-height:			5px;
 $c-navigation-divider-color:			$color-global-middle;
+$c-navigation-text-color--alt:			$color-global-middle;
 $c-navigation-bar-height:				$c-navigation-divider-height;
 $c-navigation-bars-width:				35px;
 // ./ Navigation
