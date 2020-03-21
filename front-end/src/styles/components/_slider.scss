@@ -8,20 +8,8 @@
 		height: 0px;
 	}
 
-	25% {
-		height: $quarter;
-	}
-
-	50% {
-		height: $half;
-	}
-
-	75% {
-		height: $half + $quarter;
-	}
-
 	100% {
-		height: $full;
+		height: $c-slider-bar-size;
 	}
 }
 
@@ -31,6 +19,7 @@
 
 		position: fixed;
 		left: $c-slider-left-position;
+		z-index: $c-slider-z-index;
 	}
 
 	&-item {
@@ -43,7 +32,7 @@
 			background: $c-slider-square-background-color;
 			position: relative;
 			display: inline-block;
-			// transition: all .3s;
+			transition: all .3s;
 
 			&.slider-item__square--active {
 				background: $c-slider-square-background-color--alt;
