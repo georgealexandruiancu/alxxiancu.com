@@ -59,28 +59,23 @@ $inner-gutter--double:					$inner-gutter * 2;
 $inner-gutter--tripple:					$inner-gutter * 3;
 $inner-gutter--quarter:					$inner-gutter / 4;
 
-$font-family-global:					'Titillium Web', sans-serif;
+$font-family-global:					'Poppins', sans-serif;
 
 // ============= COMPONENTS =============
 
-// - Header
-$c-header-container-height:				250px;
-$c-header-logo-width:					300px;
-$c-header-container-bg-color:			$color-global-primary;
-$c-header-title-color:					$color-global-positive;
-$c-header-title-font-size:				map-get($font-sizes, xxl);
-$c-header-title-font-weight:			map-get($font-weights, bold);
-$c-header-title-letter-spacing:			map-get($letter-spacings, large);
-
-// ./ Header
-
-// - User Card
-$card-background-color:					$color-global-secondary;
-$card-text-color:						$color-global-positive;
-$card-text-color--highlight:			$color-global-middle;
-$card-min-width:						$full;
-$card-min-height:						$full;
-$card-gutter:							$inner-gutter;
-$card-gutter--half:						$card-gutter / 2;
-$card-border-radius:					5px;
-// ./ User Card
+// - Navigation
+$c-navigation-z-index:					map-get($z-indexs, above-all);
+$c-navigation-max-width:				340px;
+$c-navigation-gutter:					$inner-gutter;
+$c-navigation-quarter-gutter:			$c-navigation-gutter / 4;
+$c-navigation-background-color: 		$color-global-negative;
+$c-navigation-text-color:				$color-global-positive;
+$c-navigation-title-font-size:			map-get($font-sizes, l);
+$c-navigation-title-font-weight:		map-get($font-weights, bold);
+$c-navigation-title-letter-spacing:		map-get($letter-spacings, medium);
+$c-navigation-divider-width:			75px;
+$c-navigation-divider-height:			5px;
+$c-navigation-divider-color:			$color-global-middle;
+$c-navigation-bar-height:				$c-navigation-divider-height;
+$c-navigation-bars-width:				35px;
+// ./ Navigation

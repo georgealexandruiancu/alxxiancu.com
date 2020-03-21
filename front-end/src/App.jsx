@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import HomepageClient from "./client/components/HomepageClient";
-import HomepageMentenanta from "./client/components/HomepageMentenanta";
+import HomepageClient from "./client/pages/HomepageClient";
+import HomepageMentenanta from "./client/pages/HomepageMentenanta";
 
 import "./styles/style.css";
 

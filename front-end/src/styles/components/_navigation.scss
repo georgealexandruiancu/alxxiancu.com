@@ -1,0 +1,65 @@
+@import "../colors";
+@import "../variables";
+
+@import "../mixins";
+
+.navigation {
+	&-wrapper {
+		position: fixed;
+		max-width: $c-navigation-max-width;
+		width: $full;
+		padding: $c-navigation-gutter;
+		color: $c-navigation-text-color;
+		background-color: $c-navigation-background-color;
+		z-index: $c-navigation-z-index;
+		box-sizing: border-box;
+	}
+
+	&-container {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-self: center;
+	}
+
+	&-title {
+		font-size: $c-navigation-title-font-size;
+		font-weight: $c-navigation-title-font-weight;
+		text-transform: uppercase;
+		flex: 1 1 auto;
+	}
+
+	&-divider {
+		width: $c-navigation-divider-width;
+		height: $c-navigation-divider-height;
+		background-color: $c-navigation-divider-color;
+		margin-top: $c-navigation-quarter-gutter;
+	}
+
+	&-bars {
+		max-width: $c-navigation-bars-width;
+		width: $c-navigation-bars-width;
+		flex: 1 1 auto;
+		cursor: pointer;
+
+		&__item {
+			margin-top: $c-navigation-quarter-gutter;
+			height: $c-navigation-bar-height;
+			width: $c-navigation-bars-width;
+			background-color: $c-navigation-divider-color;
+			transition: all .3s;
+
+			.js-nav-active &:nth-child(1) {
+				transform: rotate(-45deg) translate(-7px, 8px);
+			}
+
+			.js-nav-active &:nth-child(2) {
+				opacity: $zero;
+			}
+
+			.js-nav-active &:nth-child(3) {
+				transform: rotate(45deg) translate(-7px, -8px);
+			}
+		}
+	}
+}

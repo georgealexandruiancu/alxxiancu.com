@@ -1,3 +1,11 @@
+//======================== FONT FAMILIES =========================
+//================================================================
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap');
+
+//======================== IMPORTS =========================
+//================================================================
+
 @import "colors";
 
 @import "variables";
@@ -8,7 +16,14 @@
 
 @import "objects";
 
-@import "helpers"
+@import "helpers";
+
+html, body {
+	font-family: $font-family-global;
+	padding: $zero;
+	margin: $zero;
+	overflow-y: hidden;
+}
 
 //======================== OVERRIDES HERE ========================
 //================================================================

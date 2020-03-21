@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+import Navigation from "../components/Navigation";
+
+import "../../styles/pages/HomepageClient.css";
+
 class HomepageClient extends Component {
 
 	constructor() {
@@ -10,7 +14,9 @@ class HomepageClient extends Component {
 
 	render() {
 		return (
-			<div className="">Homepage Client</div>
+			<>
+				<Navigation />
+			</>
 		);
 	}
 }

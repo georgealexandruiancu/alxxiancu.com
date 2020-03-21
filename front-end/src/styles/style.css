@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap");
 @media screen and (max-width: -1px) {
   .hidden-xs-down {
     display: none !important;
@@ -557,5 +558,12 @@
 
 .u-text-align--right {
   text-align: right;
+}
+
+html, body {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
 }
 /*# sourceMappingURL=style.css.map */
