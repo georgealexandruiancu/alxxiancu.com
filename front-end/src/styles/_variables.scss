@@ -73,7 +73,7 @@ $font-family-global:					'Poppins', sans-serif;
 // - Navigation
 $c-navigation-z-index:					map-get($z-indexs, above-all);
 $c-navigation-full-z-index:				map-get($z-indexs, max-above);
-$c-navigation-max-width:				450px;
+$c-navigation-max-width:				$mobile-landscape;
 $c-navigation-gutter:					$inner-gutter;
 $c-navigation-quarter-gutter:			$c-navigation-gutter / 4;
 $c-navigation-background-color: 		$color-global-negative;

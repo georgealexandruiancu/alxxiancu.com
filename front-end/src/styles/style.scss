@@ -22,8 +22,9 @@ html, body {
 	font-family: $font-family-global;
 	padding: $zero;
 	margin: $zero;
-	overflow-y: hidden;
+	overflow-x: hidden;
 	background-color: $color-global-negative;
+	scroll-behavior: smooth;
 }
 
 //======================== OVERRIDES HERE ========================

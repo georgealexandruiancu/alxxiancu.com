@@ -25,7 +25,8 @@
 			height: 80%;
 			position: absolute;
 			right: 0;
-			bottom: 0;
+			bottom: 50%;
+			transform: translateY(50%);
 		}
 	}
 
@@ -51,8 +52,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			background: rgba($color-global-middle, 0.5);
-			box-shadow: 0px 0px 15px 2px $color-global-middle;
+			background-image: linear-gradient(to bottom, rgba(37, 202, 127, 0) 0%, #25ca7f 75%, #25ca7f 100%) !important;
 			animation: goDown 5s linear infinite;
 			opacity: $zero;
 
