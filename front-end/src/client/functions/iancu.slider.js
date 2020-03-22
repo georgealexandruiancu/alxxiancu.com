@@ -60,7 +60,7 @@ export const reachElement = () => {
 	let observer = new IntersectionObserver( function (entries) {
 		entries.forEach( function (entry) {
 			const { isIntersecting, intersectionRatio } = entry;
-			if (isIntersecting === true || intersectionRatio > 0) {
+			if (isIntersecting === true || intersectionRatio > 0.7) {
 
 				changeSlide(entry.target.dataset.slide, "js-slider-item");
 				selectActiveNavItem(document.querySelector(".js-nav-slide[data-nav-slide='"+entry.target.dataset.slide+"']"));

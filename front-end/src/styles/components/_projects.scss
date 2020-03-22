@@ -4,5 +4,16 @@
 @import "../mixins";
 
 .projects {
-
+	&-wrapper {
+		position: relative;
+		height: 500px;
+		min-height: $full;
+		width: $full;
+		color: white;
+		text-align: center;
+		font-size: 3em;
+		font-weight: 800;
+		letter-spacing: 1.2px;
+		text-shadow: 3px 3px 1px $color-global-middle;
+	}
 }

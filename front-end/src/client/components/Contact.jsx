@@ -11,7 +11,8 @@ class Contact extends Component {
 		return (
 			<>
 				<div className="contact-wrapper  js-section-slide" data-slide="5">
-					Contact
+					one 🍌... two 🍌... <br />
+					this is the hole of under construction
 				</div>
 			</>
 		);

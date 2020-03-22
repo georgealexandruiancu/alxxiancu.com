@@ -11,7 +11,8 @@ class Projects extends Component {
 		return (
 			<>
 				<div className="projects-wrapper  js-section-slide" data-slide="2">
-					Projects
+					one 🍌... two 🍌... <br />
+					this is the hole of under construction
 				</div>
 			</>
 		);

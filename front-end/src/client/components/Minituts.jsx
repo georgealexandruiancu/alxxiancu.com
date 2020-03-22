@@ -11,7 +11,8 @@ class Minituts extends Component {
 		return (
 			<>
 				<div className="minituts-wrapper  js-section-slide" data-slide="3">
-					Minituts
+					one 🍌... two 🍌... <br />
+					this is the hole of under construction
 				</div>
 			</>
 		);
