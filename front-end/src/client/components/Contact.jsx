@@ -10,7 +10,7 @@ class Contact extends Component {
 	render() {
 		return (
 			<>
-				<div className="projects-wrapper  js-create-height  js-section-slide" data-slide="2">
+				<div className="contact-wrapper  js-section-slide" data-slide="5">
 					Contact
 				</div>
 			</>

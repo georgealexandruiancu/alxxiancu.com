@@ -10,7 +10,7 @@ class Minituts extends Component {
 	render() {
 		return (
 			<>
-				<div className="projects-wrapper  js-create-height  js-section-slide" data-slide="2">
+				<div className="minituts-wrapper  js-section-slide" data-slide="3">
 					Minituts
 				</div>
 			</>

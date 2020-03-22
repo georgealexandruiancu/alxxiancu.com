@@ -10,7 +10,7 @@ class Projects extends Component {
 	render() {
 		return (
 			<>
-				<div className="projects-wrapper  js-create-height  js-section-slide" data-slide="2">
+				<div className="projects-wrapper  js-section-slide" data-slide="2">
 					Projects
 				</div>
 			</>
