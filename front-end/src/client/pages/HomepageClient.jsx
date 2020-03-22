@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation";
 import Slider from "../components/Slider";
 import BackgroundHome from '../components/BackgroundHome';
 import Aboutme from '../components/Aboutme';
+import Projects from "../components/Projects";
 
 import * as UI from "../functions/iancu.slider";
 
@@ -30,6 +31,7 @@ class HomepageClient extends Component {
 				<Slider />
 				<BackgroundHome />
 				<Aboutme />
+				<Projects />
 			</>
 		);
 	}
