@@ -1,0 +1,138 @@
+@import "../colors";
+@import "../variables";
+
+@import "../mixins";
+
+.aboutme {
+	&-wrapper {
+		width: 100%;
+		height: 100%;
+		background: rgb(0,0,0);
+		background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(14,15,16,1) 100%);
+		position: relative;
+		z-index: 99;
+		padding-top: $inner-gutter--tripple;
+		padding-bottom: $inner-gutter--tripple;
+	}
+
+	&-container {
+		flex: 1 1 auto;
+		flex-direction: column;
+	}
+
+	&-card {
+		padding: $inner-gutter--half;
+		background-color: black;
+		border-radius: 5px;
+		margin: $inner-gutter--half;
+		color: $color-global-positive;
+		transition: all .3s;
+
+		&:hover {
+			transform: scale(1.05);
+			cursor: pointer;
+
+			.aboutme-card__title {
+				border-color: $color-global-middle;
+			}
+		}
+
+		&__title {
+			padding-bottom: $inner-gutter--half;
+			border-bottom: 1px solid rgba($color-global-positive, .6);
+		}
+
+		&__content {
+			padding-top: $inner-gutter;
+
+			&--image {
+				width: 200px;
+				height: 200px;
+				position: relative;
+				overflow: hidden;
+
+				img {
+					@include center(both, absolute);
+					height: 100%;
+				}
+			}
+
+			&--description {
+				padding: $inner-gutter;
+
+				.title {
+					color: $color-global-middle;
+
+					&--alt {
+						color: $color-global-positive;
+						font-size: 2.2em;
+					}
+				}
+
+				.title-placeholder {
+					font-weight: 700;
+				}
+
+				.content {
+					font-size: .8em;
+					margin-top: $inner-gutter--half;
+				}
+
+				&-alt {
+					.content {
+						text-transform: uppercase;
+						letter-spacing: 1.1px;
+						border-bottom: 2px solid $color-global-middle;
+					}
+				}
+			}
+
+			&--features {
+				padding: $inner-gutter;
+				min-width: 100%;
+				position: relative;
+
+				&-item {
+					margin-top: $inner-gutter;
+					display: flex;
+
+					.bubble-icon {
+						width: 30px;
+						height: 30px;
+						background-color: #0E0F10;
+						border-radius: 5px;
+						box-shadow: 1px 2px 5px 0px white;
+						position: relative;
+
+						svg {
+							@include center(both, absolute);
+						}
+					}
+
+					.feature-content {
+						@include center(vertical, relative);
+						padding-left: $inner-gutter;
+						font-size: .8em;
+					}
+
+					&:hover {
+						color: $color-global-middle;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		.aboutme-feature {
+			box-sizing: border-box;
+			text-align: end;
+			border-right: 2px solid $color-global-middle;
+
+			&--alt {
+				text-align: start;
+				border-right: $zero;
+				border-left: 2px solid $color-global-middle;
+			}
+		}
+	}
+}

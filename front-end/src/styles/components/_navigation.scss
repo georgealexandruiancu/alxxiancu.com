@@ -5,7 +5,10 @@
 
 .navigation {
 	&-wrapper {
-		position: fixed;
+		@include center(horizontal, fixed);
+		border-bottom-left-radius: $c-navigation-gutter;
+		border-bottom-right-radius: $c-navigation-gutter;
+		top: $zero;
 		max-width: $c-navigation-max-width;
 		width: $full;
 		padding: $c-navigation-gutter;
@@ -14,6 +17,10 @@
 		z-index: $c-navigation-z-index;
 		box-sizing: border-box;
 		box-shadow: 1px 1px 10px $c-navigation-boxshadow-color;
+
+		@media (max-width: $mobile-portrait) {
+			max-width: 350px;
+		}
 	}
 
 	&-container {

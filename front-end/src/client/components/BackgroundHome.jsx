@@ -12,7 +12,7 @@ class BackgroundHome extends Component {
 	render() {
 		return (
 			<>
-				<div className="background-wrapper">
+				<div className="background-wrapper  js-section-slide" data-slide="0">
 					<div className="background-lines">
 						<div className="background-line">
 							<div className="background-line__glow"></div>
@@ -31,7 +31,7 @@ class BackgroundHome extends Component {
 						</div>
 					</div>
 					<img
-						src={require('../../assets/bg-main.jpg')}
+						src={require('../../assets/bg-main.png')}
 						alt="Alex Iancu"
 					/>
 				</div>
