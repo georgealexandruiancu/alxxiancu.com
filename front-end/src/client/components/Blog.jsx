@@ -16,14 +16,14 @@ class Blog extends Component {
 		return (
 			<div className="blog-wrapper  js-section-slide" data-slide="4">
 				<div className="blog-container">
-						<Carousel infiniteLoop useKeyboardArrows autoPlay>
-							<div>
+						<Carousel showArrows={false} infiniteLoop emulateTouch>
+							<div style={{margin: 100+"px"}}>
 								<img src={require("../../assets/test1.jpg")} />
 							</div>
-							<div>
+							<div style={{ margin: 100 + "px" }}>
 								<img src={require("../../assets/test1.jpg")} />
 							</div>
-							<div>
+							<div style={{ margin: 100 + "px" }}>
 								<img src={require("../../assets/test1.jpg")} />
 							</div>
 						</Carousel>
