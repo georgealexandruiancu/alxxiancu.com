@@ -12,7 +12,7 @@ class Slider extends Component {
 	render() {
 		return (
 			<>
-				<div className="slider-wrapper">
+				<div className="slider-wrapper-iancu">
 					<div className="slider-container">
 
 						<div className="slider-item  js-slider-item" data-index-slide="0" onClick={() => {UI.changeSlide("0", "js-slider-item"); UI.scrollToElement("0");} }>
