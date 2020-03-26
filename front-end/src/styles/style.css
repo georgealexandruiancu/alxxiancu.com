@@ -548,6 +548,65 @@
   }
 }
 
+.o-button {
+  width: 175px;
+  padding: 5px;
+  background: #ffffff;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 2px solid #4CD964;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.o-button:hover {
+  background-color: #4CD964;
+  border-radius: 50px;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+.o-divider {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translate(-50%);
+  width: 150px;
+}
+
+.o-divider .cls-svg {
+  fill: none;
+  stroke: #4CD964;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  stroke-dasharray: 100;
+  -webkit-animation: dash 10s infinite linear;
+          animation: dash 10s infinite linear;
+}
+
+.o-title-section {
+  color: white;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-shadow: 3px 3px 1px #4CD964;
+}
+
 .u-text-align--center {
   text-align: center;
 }

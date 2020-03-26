@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Divider from "./divider";
+
 class Contact extends Component {
 
 	constructor() {
@@ -10,9 +12,12 @@ class Contact extends Component {
 	render() {
 		return (
 			<>
-				<div className="contact-wrapper  js-section-slide" data-slide="5">
-					one 🍌... two 🍌... <br />
-					this is the hole of under construction
+				<div
+					className="contact-wrapper  js-section-slide"
+					data-slide="5"
+				>
+					<div className="o-title-section">Contact</div>
+					<Divider />
 				</div>
 			</>
 		);

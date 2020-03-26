@@ -5,15 +5,125 @@
 
 .minituts {
 	&-wrapper {
-		position: relative;
-		height: 500px;
-		min-height: $full;
-		width: $full;
-		color: white;
-		text-align: center;
-		font-size: 3em;
-		font-weight: 800;
-		letter-spacing: 1.2px;
-		text-shadow: 3px 3px 1px $color-global-middle;
+
+	}
+}
+
+@keyframes makeFull {
+	from {
+		height: $zero;
+		opacity: 0;
+	}
+
+	to {
+		height: $half;
+		opacity: 1;
+	}
+}
+
+.minituts {
+
+	@media (min-width: $tablet-landscape) {
+		.post-slide {
+			margin: $inner-gutter--tripple;
+			position: relative;
+			transition: transform 0.6s;
+			width: 500px;
+			height: 500px;
+		}
+	}
+
+	&-wrapper {
+		.slide {
+			position: relative;
+			height: 500px;
+			max-height: 500px;
+			margin: $inner-gutter;
+
+			img {
+				@include center(both, absolute);
+			}
+		}
+
+		.slide.selected {
+			img {
+				filter: blur(6px);
+			}
+
+			.post-slide__wrapper {
+				opacity: $one;
+			}
+		}
+
+		.post-slide__wrapper {
+				@include center(both, absolute);
+				opacity: $zero;;
+
+				background-color: rgba($color-global-middle, .8);
+				width: 95%;
+				height: 85%;
+				transition: all .4s;
+				overflow: hidden;
+
+				@media (max-width: $tablet-portrait) {
+					width: 80%;
+					height: 80%;
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					right: 0;
+					z-index: 100;
+					top: 0;
+					width: 8px;
+					height: $zero;  /* or 100px */
+					background: #fff;
+					transition: all .4s;
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					left: 0;
+					z-index: 100;
+					bottom: 0;
+					width: 8px;
+					height: $zero;  /* or 100px */
+					background: #fff;
+					transition: all .4s;
+				}
+
+				&:hover {
+					border-top-left-radius: 10px;
+					border-bottom-right-radius: 10px;
+
+					&::before,
+					&::after {
+						height: 50%;
+					}
+				}
+			}
+
+			.post-slide__title {
+				@include center(both, relative);
+
+				margin-top: $inner-gutter;
+				text-align: center;
+				font-size: 1.7em;
+				font-weight: 700;
+				color: white;
+				letter-spacing: 1.1px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				word-wrap: break-word;
+				padding: $inner-gutter;
+			}
+
+			.post-slide__button {
+				@include center(horizontal, absolute);
+
+				bottom: $inner-gutter;
+			}
 	}
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Divider from "./divider";
 class Projects extends Component {
 
 	constructor() {
@@ -10,9 +10,12 @@ class Projects extends Component {
 	render() {
 		return (
 			<>
-				<div className="projects-wrapper  js-section-slide" data-slide="2">
-					one 🍌... two 🍌... <br />
-					this is the hole of under construction
+				<div
+					className="projects-wrapper  js-section-slide"
+					data-slide="2"
+				>
+					<div className="o-title-section">Projects</div>
+					<Divider />
 				</div>
 			</>
 		);

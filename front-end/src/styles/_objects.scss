@@ -1,2 +1,49 @@
 //======================== OBJECTS HERE ========================
 //================================================================
+
+.o-button {
+	width: 175px;
+	padding: $inner-gutter--quarter;
+	background: $color-global-positive;
+	font-size: 1em;
+	border-radius: 5px;
+	border: 2px solid $color-global-middle;
+	cursor: pointer;
+	transition: all .3s;
+
+	&:hover {
+		background-color: $color-global-middle;
+		border-radius: 50px;
+		box-shadow: 1px 1px 10px rgba($color-global-negative, .1);
+	}
+}
+
+@keyframes dash {
+	to {
+		stroke-dashoffset: 1000;
+	}
+}
+
+.o-divider {
+	@include center(horizontal, relative);
+	width: 150px;
+
+	.cls-svg {
+		fill:none;
+		stroke: $color-global-middle;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke-width:2px;
+		stroke-dasharray: 100;
+		animation: dash 10s infinite linear;
+	}
+}
+
+.o-title-section{
+	color: white;
+	text-align: center;
+	font-size: 3em;
+	font-weight: 800;
+	letter-spacing: 1.2px;
+	text-shadow: 3px 3px 1px $color-global-middle;
+}
