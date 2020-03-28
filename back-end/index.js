@@ -45,19 +45,24 @@ var middleware = (req, res, next) => {
 	}
 }
 
-var whoami = (req, res, next) => {
-	if (req.cookies[process.env.ADMIN_COOKIE_NAME] == process.env.ADMIN_COOKIE) {
-		req.user = true;
-	}
-	else {
-		req.user = false;
-	}
-
-	next();
-}
-
 app.use(middleware);
-app.use(whoami);
+app.use(
+	async function (req, res, next) {
+		console.log(req.cookies);
+		if (req.cookies[process.env.ADMIN_COOKIE_NAME] === process.env.ADMIN_COOKIE) {
+			console.log("ajunge aici ");
+			req.user = true;
+		}
+		else {
+			console.log("ajunge aici false");
+			req.user = false;
+		}
+
+		console.log("req user here: " + req.user);
+
+		next();
+	}
+);
 
 // routes
 app.use("/storage", appRouterStorage);
@@ -65,6 +70,14 @@ app.use("/blog", appRouterBlog);
 app.use("/personal", appRouterPersonal);
 app.use("/projects", appRouterProjects);
 app.use("/mails", appRouterMails);
+
+app.get("/whoami", (req, res, next) => {
+	if (req.user) {
+		res.json({ logged: true });
+	} else {
+		res.json({ logged: false });
+	}
+});
 
 app.get('/',function(req,res){
 	res.send("Rest API alxxiancu.com")
