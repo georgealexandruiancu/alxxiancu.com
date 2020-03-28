@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 var mysql = require("mysql");
+const sha1 = require("sha1");
 
 function CreateTabels() {
 	var con = mysql.createPool({
@@ -14,6 +15,25 @@ function CreateTabels() {
 	con.getConnection(function(err) {
 		if (err) throw err;
 		console.log("Connected!");
+		var sql = `CREATE TABLE admin (
+			id INT NOT NULL AUTO_INCREMENT,
+			email VARCHAR(500),
+			password VARCHAR(500),
+			PRIMARY KEY (id)
+		)`;
+
+		con.query(sql, function(err, result) {
+			if (err) {
+				if (err.errno === 1050) {
+					console.log("Table %cadmin already exist! Skipping...", "color:red;");
+					return;
+				}
+			}
+			if (!err) {
+				console.log("Table %cadmin created", "color:red;");
+			}
+		});
+
 		var sql = `CREATE TABLE personal_information (
 			id INT DEFAULT '1',
 			description LONGTEXT,
@@ -212,6 +232,11 @@ async function insertData(con) {
 		console.log("Added default values into personal_cv");
 	});
 
+	defaultValuesSQL = "INSERT INTO admin (email, password) VALUES ('"+ process.env.DB_ACCESS_ADMIN +"', '"+ sha1(process.env.DB_ACCESS_PASS) +"')";
+	con.query(defaultValuesSQL, function(err, result) {
+		if (err) throw err;
+		console.log("Added default values into admin");
+	});
 }
 
 

@@ -51,6 +51,11 @@ router.post("/add", (req, res, next) => {
 });
 
 router.get("/get", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	con.getConnection(err => {
 		if (err) {
 			console.log(err);

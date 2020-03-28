@@ -16,6 +16,10 @@ var con = mysql.createPool({
 
 router.post("/add/education", (req, res, next) => {
 
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let date_start = req.body.date_start;
 	let date_end = req.body.date_end;
 	let title = req.body.title;
@@ -48,6 +52,10 @@ router.post("/add/education", (req, res, next) => {
 
 router.delete("/delete/education", (req, res, next) => {
 
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let id = req.body.id;
 
 	con.getConnection(err => {
@@ -76,6 +84,10 @@ router.delete("/delete/education", (req, res, next) => {
 });
 
 router.put("/update/education", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
 
 	let id = req.body.id;
 	let date_start = req.body.date_start;
@@ -111,6 +123,10 @@ router.put("/update/education", (req, res, next) => {
 
 router.post("/add/languages", (req, res, next) => {
 
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let title = req.body.title;
 
 	con.getConnection(err => {
@@ -140,6 +156,10 @@ router.post("/add/languages", (req, res, next) => {
 
 router.delete("/delete/languages", (req, res, next) => {
 
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let id = req.body.id;
 
 	con.getConnection(err => {
@@ -168,6 +188,11 @@ router.delete("/delete/languages", (req, res, next) => {
 });
 
 router.put("/update/cv", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let id = 1;
 	let file = req.body.file;
 	let title = req.body.title;
@@ -198,6 +223,11 @@ router.put("/update/cv", (req, res, next) => {
 });
 
 router.put("/update/information", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let id = 1;
 	let description = req.body.description;
 	let profile_image = req.body.profile_image;

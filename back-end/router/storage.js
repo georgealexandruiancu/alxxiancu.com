@@ -36,6 +36,11 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 router.post("/uploadfiles", upload.array("myFiles", 10), (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	const files = req.files;
 
 	if (!files) {
@@ -75,6 +80,10 @@ router.post("/uploadfiles", upload.array("myFiles", 10), (req, res, next) => {
 
 
 router.delete("/delete", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
 
 	let data = req.body;
 

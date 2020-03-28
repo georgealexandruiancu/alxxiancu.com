@@ -15,6 +15,11 @@ var con = mysql.createPool({
 });
 
 router.post("/add", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let data = req.body;
 
 	let photo = data.photo;
@@ -50,6 +55,11 @@ router.post("/add", (req, res, next) => {
 });
 
 router.put("/update", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let id = req.body.id;
 	let photo = req.body.photo;
 	let shortDescription = req.body.shortDescription;
@@ -84,6 +94,11 @@ router.put("/update", (req, res, next) => {
 });
 
 router.delete("/delete", (req, res, next) => {
+
+	if (!req.user) {
+		res.sendStatus(401);
+	}
+
 	let id = req.body.id;
 
 	con.getConnection(err => {
