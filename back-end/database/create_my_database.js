@@ -172,6 +172,26 @@ function CreateTabels() {
 			if (!err) console.log("Table %cmails created", "color:red;");
 		});
 
+		sql = `CREATE TABLE storage (
+			id INT NOT NULL AUTO_INCREMENT,
+			path VARCHAR(500),
+			path_absolute VARCHAR(500),
+			PRIMARY KEY (id)
+		)`;
+
+		con.query(sql, function(err, result) {
+			if (err) {
+				if (err.errno === 1050) {
+					console.log(
+						"Table %cstorage already exist! Skipping...",
+						"color:red;"
+					);
+					return;
+				}
+			}
+			if (!err) console.log("Table %cstorage created", "color:red;");
+		});
+
 		insertData(con);
 	});
 }

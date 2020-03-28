@@ -2,8 +2,10 @@ var cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
 
-
 const app = express();
+
+// routes
+const appRouterStorage = require('./router/storage');
 
 // added cors
 app.use(cors());
@@ -15,9 +17,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
-app.get("/", (res) => {
-	res.json({ message: "Welcome to alxxiancu.com REST API." });
+// ROUTES
+
+// routes
+app.use("/storage", appRouterStorage);
+
+
+app.get('/',function(req,res){
+	res.sendFile(__dirname + '/index.html');
 });
+
 
 // set port, listen for requests
 app.listen(3000, () => {
