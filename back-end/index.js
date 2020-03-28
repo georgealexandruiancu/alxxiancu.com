@@ -52,7 +52,7 @@ app.use("/projects", appRouterProjects);
 app.use("/mails", appRouterMails);
 
 app.get('/',function(req,res){
-	res.sendFile(__dirname + '/index.html');
+	res.send("Rest API alxxiancu.com")
 });
 
 
