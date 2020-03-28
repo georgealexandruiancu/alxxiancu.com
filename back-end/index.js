@@ -6,6 +6,7 @@ const app = express();
 
 // routes
 const appRouterStorage = require('./router/storage');
+const appRouterBlog = require("./router/blog");
 
 // added cors
 app.use(cors());
@@ -21,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes
 app.use("/storage", appRouterStorage);
-
+app.use("/blog", appRouterBlog);
 
 app.get('/',function(req,res){
 	res.sendFile(__dirname + '/index.html');
