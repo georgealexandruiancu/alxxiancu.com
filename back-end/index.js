@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 var cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -20,8 +22,27 @@ app.use(bodyParser.json());
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// simple route
-// ROUTES
+var middleware = (req, res, next) => {
+
+	if (process.env.IS_PROD === "true") {
+		if (req.get("host").includes(process.env.HOST_PROD)) {
+			next();
+		}
+		else {
+			res.sendStatus(401);
+		}
+	}
+	else {
+		if (req.get("host").includes(process.env.HOST_DEV)) {
+			next();
+		} else {
+			res.sendStatus(401);
+		}
+	}
+
+}
+
+app.use(middleware);
 
 // routes
 app.use("/storage", appRouterStorage);
