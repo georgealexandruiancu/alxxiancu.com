@@ -17,14 +17,14 @@ class Blog extends Component {
 				window.innerWidth || 0
 			)
 		});
-		window.addEventListener('resize', () => {
+		window.addEventListener("resize", () => {
 			this.setState({
 				vw: Math.max(
 					document.documentElement.clientWidth,
 					window.innerWidth || 0
 				)
 			});
-		})
+		});
 	}
 
 	componentWillUnmount () {
