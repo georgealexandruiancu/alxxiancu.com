@@ -4,10 +4,7 @@ var cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
 const app = express();
-
-
 
 // added cookies
 app.use(cookieParser());
@@ -33,6 +30,9 @@ app.use(bodyParser.json());
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+
+
 var middleware = (req, res, next) => {
 
 	if (process.env.IS_PROD === "true") {
@@ -52,17 +52,26 @@ var middleware = (req, res, next) => {
 	}
 }
 
-app.use(middleware);
+// app.use(middleware);
+app.use(
+	function (req, res, next) {
+		console.log(req.headers.cookie);
+		console.log(req.cookies);
+		console.log(req.signedCookies[process.env.ADMIN_COOKIE_NAME]);
+		if (req.cookies[process.env.ADMIN_COOKIE_NAME] === process.env.ADMIN_COOKIE) {
+			console.log("ajunge aici ");
+			req.user = true;
+		}
+		else {
+			console.log("ajunge aici false");
+			req.user = false;
+		}
 
-app.use(function(req, res, next) {
-	if ( req.cookies[process.env.ADMIN_COOKIE_NAME] === process.env.ADMIN_COOKIE ) {
-		req.user = true;
-	} else {
-		req.user = false;
+		console.log("req user here: " + req.user);
+
+		next();
 	}
-
-	next();
-});
+);
 
 // routes
 app.use("/storage", appRouterStorage);
@@ -79,9 +88,10 @@ app.get("/whoami", (req, res, next) => {
 	}
 });
 
-app.get("/", function(req, res) {
-	res.send("Rest API alxxiancu.com");
+app.get('/',function(req,res){
+	res.send("Rest API alxxiancu.com")
 });
+
 
 // set port, listen for requests
 app.listen(3000, () => {

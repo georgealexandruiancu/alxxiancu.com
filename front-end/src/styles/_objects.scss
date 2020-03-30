@@ -2,7 +2,9 @@
 //================================================================
 
 .o-button {
-	width: 175px;
+	max-width: 175px;
+	min-width: 100px;
+	margin: $inner-gutter--quarter;
 	padding: $inner-gutter--quarter;
 	background: $color-global-positive;
 	font-size: 1em;
@@ -10,11 +12,39 @@
 	border: 2px solid $color-global-middle;
 	cursor: pointer;
 	transition: all .3s;
+	font-weight: 700;
+	letter-spacing: 1.1px;
 
 	&:hover {
 		background-color: $color-global-middle;
 		border-radius: 50px;
 		box-shadow: 1px 1px 10px rgba($color-global-negative, .1);
+	}
+
+	&--danger {
+		border-color: $color-flag-1;
+		background-color: $color-flag-1;
+		color: $color-global-positive;
+
+		&:hover {
+			background-color: $color-flag-1;
+		}
+	}
+
+	&--good {
+		border-color: $color-flag-3;
+		background-color: $color-flag-3;
+		color: $color-global-positive;
+
+		&:hover {
+			background-color: $color-flag-3;
+		}
+	}
+
+	&--xs {
+		font-size: .7em;
+		min-width: 50px;
+		max-width: 90px;
 	}
 }
 

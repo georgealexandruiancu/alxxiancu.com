@@ -7,7 +7,7 @@ const router = express.Router();
 var mysql = require("mysql");
 
 var con = mysql.createPool({
-	connectionLimit: 10,
+	connectionLimit: 50,
 	host: process.env.DB_HOST,
 	user: process.env.DB_USER,
 	password: process.env.DB_PASS,
@@ -15,10 +15,6 @@ var con = mysql.createPool({
 });
 
 router.post("/add", (req, res, next) => {
-
-	if (!req.user) {
-		res.sendStatus(401);
-	}
 
 	let data = req.body;
 
@@ -37,7 +33,7 @@ router.post("/add", (req, res, next) => {
 			return next(error);
 		}
 
-		var sql = "INSERT INTO blog (photo, short_description, body, title, path, tags) VALUES ('"+ photo +"','"+ shortDescription +"','"+ body +"','"+ title +"','"+ path +"','"+ tags +"')";
+		var sql = "INSERT INTO blog (photo, short_description, body, title, path, tags) VALUES ('"+ photo +"','"+ shortDescription +"',"+ con.escape(body) +",'"+ title +"','"+ path +"','"+ tags +"')";
 
 		con.query(sql, (err, result) => {
 			if (err) {
@@ -55,10 +51,6 @@ router.post("/add", (req, res, next) => {
 });
 
 router.put("/update", (req, res, next) => {
-
-	if (!req.user) {
-		res.sendStatus(401);
-	}
 
 	let id = req.body.id;
 	let photo = req.body.photo;
@@ -94,10 +86,6 @@ router.put("/update", (req, res, next) => {
 });
 
 router.delete("/delete", (req, res, next) => {
-
-	if (!req.user) {
-		res.sendStatus(401);
-	}
 
 	let id = req.body.id;
 

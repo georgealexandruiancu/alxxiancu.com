@@ -1,0 +1,296 @@
+.admin-navigation {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.admin-navigation a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.admin-navigation a:hover {
+  color: #4CD964;
+}
+
+.admin-navigation__item {
+  margin-top: 20px;
+  list-style-type: none;
+}
+
+.admin-navigation__logout {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+}
+
+.admin-storage {
+  position: relative;
+}
+
+.admin-storage__card {
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative;
+  margin: 5px;
+}
+
+.admin-storage__card-image {
+  width: auto;
+  min-height: 230px;
+  max-height: 230px;
+}
+
+.admin-storage__card-image img {
+  width: 200px;
+  height: 100%;
+}
+
+.admin-storage__card-actions {
+  text-align: center;
+}
+
+.admin-storage-form {
+  max-width: 500px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ffffff;
+}
+
+.admin-blog-modal.is-active {
+  display: block !important;
+}
+
+.admin-blog__card {
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative;
+  margin: 5px;
+}
+
+.admin-blog__card-image {
+  width: auto;
+  min-height: 150px;
+  max-height: 150px;
+}
+
+.admin-blog__card-image img {
+  width: 200px;
+  height: 100%;
+}
+
+.admin-blog__title-card {
+  color: #000000;
+  text-align: center;
+}
+
+.admin-blog__card-actions {
+  text-align: center;
+}
+
+.admin-blog-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: none;
+}
+
+.admin-blog-modal .title {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.admin-blog-modal .form-container {
+  margin-top: 20px;
+  position: relative;
+}
+
+.admin-blog-modal .form-container__holder {
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.admin-blog-modal .form-container label {
+  display: block;
+  color: #ffffff;
+}
+
+.admin-blog-modal .form-container input {
+  padding: 10px;
+  border: 2px solid #4CD964;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.admin-blog-modal .form-container textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.admin-blog-modal .form-container .o-button {
+  vertical-align: top;
+  margin: 0;
+  margin-left: 5px;
+}
+
+.admin-blog-modal .form-container .o-button--save {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translate(-50%);
+}
+
+.admin-blog-modal .form-container .close-button-modal {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  color: #ffffff;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.admin-blog-modal .form-container .close-button-modal:hover {
+  color: #E8557A;
+}
+
+.tox-tinymce-aux {
+  display: none;
+}
+
+.tox-tinymce-aux.is-active {
+  display: block;
+  position: initial !important;
+}
+
+.admin-projects-modal.is-active {
+  display: block !important;
+}
+
+.admin-projects__card {
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative;
+  margin: 5px;
+}
+
+.admin-projects__card-image {
+  width: auto;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.admin-projects__card-image img {
+  width: 200px;
+  height: 100%;
+}
+
+.admin-projects__title-card {
+  color: #000000;
+  text-align: center;
+}
+
+.admin-projects__card-actions {
+  text-align: center;
+}
+
+.admin-projects-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: none;
+}
+
+.admin-projects-modal .title {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.admin-projects-modal .form-container {
+  margin-top: 20px;
+  position: relative;
+}
+
+.admin-projects-modal .form-container__holder {
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.admin-projects-modal .form-container label {
+  display: block;
+  color: #ffffff;
+}
+
+.admin-projects-modal .form-container input {
+  padding: 10px;
+  border: 2px solid #4CD964;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.admin-projects-modal .form-container textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.admin-projects-modal .form-container .o-button {
+  vertical-align: top;
+  margin: 0;
+  margin-left: 5px;
+}
+
+.admin-projects-modal .form-container .o-button--save {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translate(-50%);
+}
+
+.admin-projects-modal .form-container .close-button-modal {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  color: #ffffff;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.admin-projects-modal .form-container .close-button-modal:hover {
+  color: #E8557A;
+}
+
+.tox-tinymce-aux {
+  display: none;
+}
+
+.tox-tinymce-aux.is-active {
+  display: block;
+  position: initial !important;
+}
+
+.admin-wrapper {
+  margin-left: 250px;
+  color: white;
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+/*# sourceMappingURL=AdminDashboard.css.map */

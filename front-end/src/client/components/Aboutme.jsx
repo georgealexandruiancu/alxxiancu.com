@@ -23,7 +23,7 @@ class Aboutme extends Component {
 				<div className="aboutme-wrapper  js-create-height  js-section-slide" data-slide="1">
 					<div className="container">
 						<div className="container__row">
-							<div className="container__col-xl-6  continaer__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
+							<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
 								<div className="aboutme-card">
 									<div className="aboutme-card__title">
 										Personal Information
@@ -100,7 +100,7 @@ class Aboutme extends Component {
 									</div>
 								</div>
 							</div>
-							<div className="container__col-xl-6  continaer__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
+							<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
 								<div className="aboutme-card">
 									<div className="aboutme-card__title">
 										Service
@@ -185,7 +185,7 @@ class Aboutme extends Component {
 							</div>
 						</div>
 						<div className="container__row">
-							<div className="container__col-xl-6  continaer__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
+							<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
 								<div className="aboutme-card">
 									<div className="aboutme-card__title">
 										Experience & Education
@@ -280,7 +280,7 @@ class Aboutme extends Component {
 									</div>
 								</div>
 							</div>
-							<div className="container__col-xl-6  continaer__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
+							<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-12  aboutme-container">
 								<div className="aboutme-card">
 									<div className="aboutme-card__title">
 										Favorites Languages & Technology &

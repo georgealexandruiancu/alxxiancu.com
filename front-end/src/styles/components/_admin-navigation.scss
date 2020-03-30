@@ -1,0 +1,33 @@
+@import "../colors";
+@import "../variables";
+
+@import "../mixins";
+
+.admin-navigation {
+	position: fixed;
+	width: 200px;
+	height: 100%;
+	top: $zero;
+	left: $zero;
+	background-color: $color-global-positive;
+
+	a {
+		text-decoration: none;
+		color: $color-global-negative;
+
+		&:hover {
+			color: $color-global-middle;
+		}
+	}
+
+	&__item {
+		margin-top: $inner-gutter;
+		list-style-type: none;
+	}
+
+	&__logout {
+		position: absolute;
+		bottom: $inner-gutter;
+		left: $inner-gutter--half;
+	}
+}

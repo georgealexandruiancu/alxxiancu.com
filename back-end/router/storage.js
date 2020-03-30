@@ -11,7 +11,7 @@ const router = express.Router();
 var mysql = require("mysql");
 
 var con = mysql.createPool({
-	connectionLimit: 10,
+	connectionLimit: 50,
 	host: process.env.DB_HOST,
 	user: process.env.DB_USER,
 	password: process.env.DB_PASS,
@@ -36,10 +36,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 router.post("/uploadfiles", upload.array("myFiles", 10), (req, res, next) => {
-
-	if (!req.user) {
-		res.sendStatus(401);
-	}
 
 	const files = req.files;
 
@@ -70,22 +66,23 @@ router.post("/uploadfiles", upload.array("myFiles", 10), (req, res, next) => {
 					error.httpStatusCode = 400;
 					return next(error);
 				}
+
+				if (result.affectedRows) {
+					res.sendStatus(200);
+					next();
+				}
 			});
 		});
 	});
 
-	res.sendStatus(200);
 });
 
 
 
 router.delete("/delete", (req, res, next) => {
 
-	if (!req.user) {
-		res.sendStatus(401);
-	}
-
 	let data = req.body;
+	console.log(req.body);
 
 	let id = data.id;
 	let filename = data.filename;

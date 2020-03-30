@@ -15,9 +15,12 @@ class AdminLogin extends Component {
 	}
 
 	componentDidMount () {
-		axios.get("http://localhost:3000/whoami")
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance.get("http://localhost:3000/whoami")
 			.then((response) => {
-				console.log(response);
 				if (response.data.logged) {
 					console.log("You are already logged in");
 				}
@@ -36,17 +39,22 @@ class AdminLogin extends Component {
 	}
 
 	makeLogin() {
-		axios
+
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance
 			.post("http://localhost:3000/login/make-owner", {
 				email: this.state.email,
 				password: this.state.password
 			})
 			.then(function(response) {
+				console.log(response);
 				if (response.status === 200) {
 					console.log("ok");
-				}
-				else if (response.status === 401) {
-					console.log("not ok");
+				} else if (response.status === 401) {
+					alert("Unable to login, please try again!");
 				}
 			})
 			.catch(function(error) {
@@ -57,7 +65,11 @@ class AdminLogin extends Component {
 	}
 
 	makeLogout() {
-		axios.get("http://localhost:3000/login/die")
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance.get("http://localhost:3000/login/die")
 			.then(function(response) {
 				console.log(response);
 			});

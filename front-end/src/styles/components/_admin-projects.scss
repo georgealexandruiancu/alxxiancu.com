@@ -1,0 +1,116 @@
+@import "../colors";
+@import "../variables";
+
+@import "../mixins";
+
+.admin-projects {
+
+	&-modal.is-active {
+		display: block !important;
+	}
+
+	&__card {
+		padding: $inner-gutter;
+		background-color: $color-global-positive;
+		position: relative;
+		margin: $inner-gutter--quarter;
+	}
+
+	&__card-image {
+		width: auto;
+		min-height: 100px;
+		max-height: 150px;
+
+		img {
+			width: 200px;
+			height: 100%;
+		}
+	}
+
+	&__title-card {
+		color: $color-global-negative;
+		text-align: center;
+	}
+
+	&__card-actions {
+		text-align: center;
+	}
+
+	&-modal {
+		position: fixed;
+		top: $zero;
+		left: $zero;
+		background-color: rgba($color-global-negative, .8);
+		width: $full;
+		height: $full;
+		overflow: visible;
+		display: none;
+
+		.title {
+			color: $color-global-positive;
+			text-align: center;
+			font-size: 1.5em;
+		}
+
+		.form-container {
+			margin-top: $inner-gutter;
+			position: relative;
+
+			&__holder {
+				padding-left: $inner-gutter--half;
+				padding-right: $inner-gutter;
+				padding-top: $inner-gutter--half;
+				box-sizing: border-box;
+			}
+
+			label {
+				display: block;
+				color: $color-global-positive;
+			}
+
+			input {
+				padding: $inner-gutter--half;
+				border: 2px solid $color-global-middle;
+				border-radius: 5px;
+				width: 100%;
+			}
+
+			textarea {
+				width: $full;
+				border-radius: $inner-gutter--half;
+			}
+
+			.o-button {
+				vertical-align: top;
+				margin: $zero;
+				margin-left: $inner-gutter--quarter;
+			}
+
+			.o-button--save{
+				@include center(horizontal, relative);
+			}
+
+			.close-button-modal	{
+				position: fixed;
+				right: $inner-gutter;
+				top: $inner-gutter;
+				color: $color-global-positive;
+				font-size: 2em;
+				cursor: pointer;
+
+				&:hover {
+					color: $color-flag-1;
+				}
+			}
+		}
+	}
+}
+
+.tox-tinymce-aux {
+	display: none;
+}
+
+.tox-tinymce-aux.is-active {
+	display: block;
+	position: initial !important;
+}

@@ -44,7 +44,16 @@ router.post("/make-owner", (req, res, next) => {
 			}
 
 			if (result.length) {
-				res.cookie(process.env.ADMIN_COOKIE_NAME, process.env.ADMIN_COOKIE, {httpOnly: true, maxAge: 900000});
+				res.cookie(
+					process.env.ADMIN_COOKIE_NAME,
+					process.env.ADMIN_COOKIE,
+					{
+						httpOnly: true,
+						expires: new Date(
+							new Date().setMonth(new Date().getMonth() + 1)
+						)
+					}
+				);
 				res.sendStatus(200);
 			}
 			else {

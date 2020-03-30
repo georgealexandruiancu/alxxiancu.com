@@ -549,7 +549,9 @@
 }
 
 .o-button {
-  width: 175px;
+  max-width: 175px;
+  min-width: 100px;
+  margin: 5px;
   padding: 5px;
   background: #ffffff;
   font-size: 1em;
@@ -558,6 +560,8 @@
   cursor: pointer;
   -webkit-transition: all .3s;
   transition: all .3s;
+  font-weight: 700;
+  letter-spacing: 1.1px;
 }
 
 .o-button:hover {
@@ -565,6 +569,32 @@
   border-radius: 50px;
   -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.o-button--danger {
+  border-color: #E8557A;
+  background-color: #E8557A;
+  color: #ffffff;
+}
+
+.o-button--danger:hover {
+  background-color: #E8557A;
+}
+
+.o-button--good {
+  border-color: #17979C;
+  background-color: #17979C;
+  color: #ffffff;
+}
+
+.o-button--good:hover {
+  background-color: #17979C;
+}
+
+.o-button--xs {
+  font-size: .7em;
+  min-width: 50px;
+  max-width: 90px;
 }
 
 @-webkit-keyframes dash {
