@@ -3,10 +3,14 @@
 @import "../components/admin-blog";
 @import "../components/admin-projects";
 
-.admin-wrapper {
-    margin-left: 250px;
-    color: white;
+.admin {
+    display: block;
     width: 100%;
+}
+
+.admin-wrapper {
+    margin-top: 50px;
+    color: white;
     position: relative;
-    height: 100%;
+    padding: $inner-gutter--double;
 }

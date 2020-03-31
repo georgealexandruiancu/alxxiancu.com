@@ -1,30 +1,55 @@
 .admin-navigation {
-  position: fixed;
-  width: 200px;
-  height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 50px;
   top: 0;
   left: 0;
   background-color: #ffffff;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.admin-navigation ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
 }
 
 .admin-navigation a {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   text-decoration: none;
   color: #000000;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
 }
 
 .admin-navigation a:hover {
   color: #4CD964;
 }
 
-.admin-navigation__item {
-  margin-top: 20px;
-  list-style-type: none;
+.admin-navigation a .o-button {
+  margin: 0;
 }
 
-.admin-navigation__logout {
-  position: absolute;
-  bottom: 20px;
-  left: 10px;
+.admin-navigation__item {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+  list-style-type: none;
 }
 
 .admin-storage {
@@ -74,7 +99,7 @@
 .admin-blog__card-image {
   width: auto;
   min-height: 150px;
-  max-height: 150px;
+  max-height: 250px;
 }
 
 .admin-blog__card-image img {
@@ -186,12 +211,12 @@
 
 .admin-projects__card-image {
   width: auto;
-  min-height: 100px;
-  max-height: 150px;
+  min-height: 150px;
+  max-height: 250px;
 }
 
 .admin-projects__card-image img {
-  width: 200px;
+  width: 100%;
   height: 100%;
 }
 
@@ -286,11 +311,15 @@
   position: initial !important;
 }
 
-.admin-wrapper {
-  margin-left: 250px;
-  color: white;
+.admin {
+  display: block;
   width: 100%;
+}
+
+.admin-wrapper {
+  margin-top: 50px;
+  color: white;
   position: relative;
-  height: 100%;
+  padding: 40px;
 }
 /*# sourceMappingURL=AdminDashboard.css.map */

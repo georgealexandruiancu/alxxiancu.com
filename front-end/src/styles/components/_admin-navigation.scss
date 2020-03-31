@@ -4,30 +4,41 @@
 @import "../mixins";
 
 .admin-navigation {
-	position: fixed;
-	width: 200px;
-	height: 100%;
+	position: absolute;
+	width: 100%;
+	height: 50px;
 	top: $zero;
 	left: $zero;
 	background-color: $color-global-positive;
+	flex-direction: row;
+	display: flex;
+
+	ul {
+		display: flex;
+		align-self: center;
+		width: 100%;
+	}
 
 	a {
+		text-align: center;
+		display: flex;
 		text-decoration: none;
 		color: $color-global-negative;
+		flex: auto;
 
 		&:hover {
 			color: $color-global-middle;
 		}
+
+		.o-button {
+			margin: $zero;
+		}
 	}
 
 	&__item {
+		text-align: center;
+		justify-content: center;
 		margin-top: $inner-gutter;
 		list-style-type: none;
-	}
-
-	&__logout {
-		position: absolute;
-		bottom: $inner-gutter;
-		left: $inner-gutter--half;
 	}
 }

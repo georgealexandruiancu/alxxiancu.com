@@ -77,3 +77,27 @@
 	letter-spacing: 1.2px;
 	text-shadow: 3px 3px 1px $color-global-middle;
 }
+
+.o-input {
+	padding: $inner-gutter--half;
+	border: 2px solid $color-global-middle;
+	border-radius: 5px;
+	width: 100%;
+	margin: $inner-gutter--quarter;
+	box-sizing: border-box;
+	margin-right: $inner-gutter--quarter;
+}
+
+.o-holder-group {
+	padding: $inner-gutter--half;
+	border: 1px solid white;
+	box-sizing: border-box;
+
+}
+
+.o-border {
+	display: block;
+	width: 100%;
+	border: 1px solid $color-global-positive;
+	box-sizing: border-box;
+}

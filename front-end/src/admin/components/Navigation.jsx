@@ -33,11 +33,12 @@ class AdminNavigation extends Component {
 						<a href="/admin/storage">
 							<li className="admin-navigation__item">Storage</li>
 						</a>
+						<a>
+							<li className="admin-navigation__item">
+								<button className="o-button">Logout</button>
+							</li>
+						</a>
 					</ul>
-
-					<div className="admin-navigation__logout">
-						<button className="o-button">Logout</button>
-					</div>
 				</div>
 			</>
 		);

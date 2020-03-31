@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Editor } from "@tinymce/tinymce-react";
-
 import { FaWindowClose } from "react-icons/fa";
 
 import AdminNavigation from "./components/Navigation";
