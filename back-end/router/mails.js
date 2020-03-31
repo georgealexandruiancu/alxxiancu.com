@@ -31,7 +31,7 @@ router.post("/add", (req, res, next) => {
 		}
 
 		var sql =
-			"INSERT INTO mails (date, sender, subject, message) VALUES ('" + date + "', '" + sender + "', '" + subject + "', '" + message + "')";
+			"INSERT INTO mails (date, sender, subject, message) VALUES (" + con.escape(date) + ", " + con.escape(sender) + ", " + con.escape(subject) + ", " + con.escape(message) + ")";
 
 		con.query(sql, (err, result) => {
 			if (err) {

@@ -122,6 +122,7 @@ class AdminStorage extends Component {
 	}
 
 	onFormSubmit(e) {
+		e.preventDefault();
 		this.fileUpload(this.state.file)
 			.then(response => {})
 			.catch(err => {

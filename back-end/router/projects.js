@@ -29,7 +29,7 @@ router.post("/add", (req, res, next) => {
 		}
 
 		var sql =
-			"INSERT INTO projects (photo, description, title) VALUES ('" + photo + "', '" + description + "', '" + title + "')";
+			"INSERT INTO projects (photo, description, title) VALUES (" + con.escape(photo) + ", " + con.escape(description) + ", " + con.escape(title) + ")";
 
 		con.query(sql, (err, result) => {
 			if (err) {
@@ -61,7 +61,7 @@ router.delete("/delete", (req, res, next) => {
 			return next(error);
 		}
 
-		var sql = "DELETE FROM projects WHERE id='" + id + "'";
+		var sql = "DELETE FROM projects WHERE id=" + con.escape(id);
 
 		con.query(sql, (err, result) => {
 			if (err) {

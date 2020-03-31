@@ -49,7 +49,9 @@ router.post("/uploadfiles", upload.array("myFiles", 10), (req, res, next) => {
 		let getAbsolutePath = item.path.replace(/\\/g, "/");
 		let getPath = "/uploads/" + getAbsolutePath.split("/")[4];
 
-		con.getConnection(err => {
+		var sql = "INSERT INTO storage (path, path_absolute) VALUES ('"+ getPath +"','"+ getAbsolutePath +"')";
+
+		con.query(sql, (err, result) => {
 			if (err) {
 				console.log(err);
 				const error = new Error("We cannot handle this request");
@@ -57,21 +59,10 @@ router.post("/uploadfiles", upload.array("myFiles", 10), (req, res, next) => {
 				return next(error);
 			}
 
-			var sql = "INSERT INTO storage (path, path_absolute) VALUES ('"+ getPath +"','"+ getAbsolutePath +"')";
-
-			con.query(sql, (err, result) => {
-				if (err) {
-					console.log(err);
-					const error = new Error("We cannot handle this request");
-					error.httpStatusCode = 400;
-					return next(error);
-				}
-
-				if (result.affectedRows) {
-					res.sendStatus(200);
-					next();
-				}
-			});
+			if (result.affectedRows) {
+				res.sendStatus(200);
+				next();
+			}
 		});
 	});
 
@@ -87,7 +78,10 @@ router.delete("/delete", (req, res, next) => {
 	let id = data.id;
 	let filename = data.filename;
 
-	con.getConnection(err => {
+
+		var sql = "DELETE FROM storage WHERE id='" + id + "'";
+
+	con.query(sql, (err, result) => {
 		if (err) {
 			console.log(err);
 			const error = new Error("Your file id didn't exists");
@@ -95,40 +89,32 @@ router.delete("/delete", (req, res, next) => {
 			return next(error);
 		}
 
-		var sql = "DELETE FROM storage WHERE id='" + id + "'";
+		if (result.affectedRows) {
+			var filePath =
+				"../front-end/public/uploads/" + filename;
+			fs.unlink(filePath, (err) => {
+				if (err) {
+					console.log(err);
+					const error = new Error("Your file id didn't exists");
+					error.httpStatusCode = 400;
+					res.sendStatus(400);
+					return next(error);
+				}
 
-		con.query(sql, (err, result) => {
-			if (err) {
-				console.log(err);
-				const error = new Error("Your file id didn't exists");
-				error.httpStatusCode = 400;
-				return next(error);
-			}
+				console.log("a file was deleted: " + filePath);
 
-			if (result.affectedRows) {
-				var filePath =
-					"../front-end/public/uploads/" + filename;
-				fs.unlink(filePath, (err) => {
-					if (err) {
-						console.log(err);
-						const error = new Error("Your file id didn't exists");
-						error.httpStatusCode = 400;
-						res.sendStatus(400);
-						return next(error);
-					}
-
-					console.log("a file was deleted: " + filePath);
-
-					res.sendStatus(200);
-				});
-			}
-		});
+				res.sendStatus(200);
+			});
+		}
 	});
 });
 
 
 router.get("/", (req, res, next) => {
-	con.getConnection(err => {
+
+	var sql = "SELECT * FROM storage";
+
+	con.query(sql, (err, result) => {
 		if (err) {
 			console.log(err);
 			const error = new Error("It's seems to be a problem with database");
@@ -136,19 +122,8 @@ router.get("/", (req, res, next) => {
 			return next(error);
 		}
 
-		var sql = "SELECT * FROM storage";
-
-		con.query(sql, (err, result) => {
-			if (err) {
-				console.log(err);
-				const error = new Error("It's seems to be a problem with database");
-				error.httpStatusCode = 400;
-				return next(error);
-			}
-
-			res.send(JSON.parse(JSON.stringify(result)));
-		});
-	})
+		res.send(JSON.parse(JSON.stringify(result)));
+	});
 });
 
 module.exports = router;

@@ -50,7 +50,7 @@ router.put("/update", (req, res, next) => {
 	let tags = req.body.tags;
 
 
-	var sql = "UPDATE blog SET photo = " + con.escape(photo) + ", short_description = " + con.escape(shortDescription) + ", body = " + con.escape(body) +", title = " + con.escape(title) +", path = " + con.escape(path) +", tags = " + con.escape(tags) + " WHERE id = '" + id +"'";
+	var sql = "UPDATE blog SET photo = " + con.escape(photo) + ", short_description = " + con.escape(shortDescription) + ", body = " + con.escape(body) +", title = " + con.escape(title) +", path = " + con.escape(path) +", tags = " + con.escape(tags) + " WHERE id = " + con.escape(id);
 
 	con.query(sql, (err, result) => {
 		if (err) {
@@ -70,7 +70,7 @@ router.delete("/delete", (req, res, next) => {
 
 	let id = req.body.id;
 
-	var sql = "DELETE FROM blog WHERE id='" + id + "'";
+	var sql = "DELETE FROM blog WHERE id=" + con.escape(id);
 
 	con.query(sql, (err, result) => {
 		if (err) {
@@ -90,7 +90,7 @@ router.get("/get-post/:id/:path", (req, res, next) => {
 	let id = req.params.id;
 	let path = req.params.path;
 
-	var sql = "SELECT * FROM blog WHERE id='" + id + "' AND path=" + con.escape(path);
+	var sql = "SELECT * FROM blog WHERE id=" + con.escape(id) + " AND path=" + con.escape(path);
 
 	con.query(sql, (err, result) => {
 		if (err) {

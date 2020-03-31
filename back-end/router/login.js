@@ -31,7 +31,7 @@ router.post("/make-owner", (req, res, next) => {
 			return next(error);
 		}
 
-		var sql = "SELECT * FROM admin WHERE email = '"+ email +"' AND password='" + password +"'";
+		var sql = "SELECT * FROM admin WHERE email = "+ con.escape(email) +" AND password=" + con.escape(password) +"";
 
 		con.query(sql, (err, result) => {
 			if (err) {
