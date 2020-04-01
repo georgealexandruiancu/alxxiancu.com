@@ -6,5 +6,26 @@
 .contact {
 	&-wrapper {
 
+		.contact-container {
+			display: flex;
+			font-size: 3em;
+			color: $color-global-positive;
+			padding-top: $inner-gutter--double;
+			padding-bottom: $inner-gutter--double;
+
+			a {
+				flex: 1 1 auto;
+				text-align: center;
+				color: $color-global-positive;
+
+				svg {
+					&:hover {
+						color: $color-global-middle;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
 	}
 }

@@ -23,6 +23,14 @@
 
 .minituts {
 
+	&--nocontent {
+		text-align: center;
+		color: $color-global-positive;
+		font-size: 1.7em;
+		padding-top: $inner-gutter--tripple;
+		padding-bottom: $inner-gutter--tripple;
+	}
+
 	@media (min-width: $tablet-landscape) {
 		.post-slide {
 			margin: $inner-gutter--tripple;

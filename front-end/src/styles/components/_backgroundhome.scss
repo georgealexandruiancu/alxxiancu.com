@@ -20,6 +20,16 @@
 }
 
 .background {
+	&-text {
+		@include center(both, absolute);
+		font-size: 2.2em;
+		color: white;
+		max-width: 500px;
+		min-width: 300px;
+		z-index: 999;
+		text-align: center;
+		font-weight: 700;
+	}
 	&-wrapper {
 		height: 100%;
 		img {

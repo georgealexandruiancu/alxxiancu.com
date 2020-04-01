@@ -14,27 +14,12 @@ class Contact extends Component {
 		return (
 			<>
 				<div
-					className="contact-wrapper  js-section-slide"
-					data-slide="5"
+					className="footer-wrapper"
 				>
-					<div className="o-title-section">Contact</div>
-					<Divider />
-
 					<div className="container">
 						<div className="container__row">
-							<div className="container__col-12  contact-container">
-								<a href="">
-									<FaLinkedin />
-								</a>
-								<a href="">
-									<FaGithubAlt />
-								</a>
-								<a href="">
-									<FaInstagram />
-								</a>
-								<a href="">
-									<FaFacebookSquare />
-								</a>
+							<div className="container__col-12  footer-container">
+								This website is create with 🍌by Alex Iancu
 							</div>
 						</div>
 					</div>

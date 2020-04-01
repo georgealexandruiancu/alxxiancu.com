@@ -1,0 +1,17 @@
+@import "../colors";
+@import "../variables";
+
+@import "../mixins";
+
+.footer {
+	&-wrapper {
+		text-align: center;
+		.footer-container {
+			font-size: 1.1em;
+			color: $color-global-positive;
+			padding-top: $inner-gutter--double;
+			padding-bottom: $inner-gutter--double;
+		}
+
+	}
+}

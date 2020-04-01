@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import * as UI from "../functions/iancu.createHeight";
 
@@ -10,13 +11,205 @@ class Aboutme extends Component {
 
 	constructor() {
 		super();
-		this.state = {};
+		this.state = {
+			personalCv: {
+				file: "",
+				title: ""
+			},
+			personalInformation: {
+				description: "",
+				profileImage: "",
+				location: ""
+			},
+			personalEducation: ""
+		};
 	}
 
 	componentDidMount () {
 		UI.createHeightForSection("js-create-height");
+
+		// GET INFORMATION DATA
+		this._getPersonalInformation();
+		this._getPersonalCv();
+		this._getPersonalEducation();
+		this._getPersonalLanguages();
 	}
 
+	_getPersonalInformation () {
+
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance
+			.get("http://localhost:3000/personal/get/information")
+			.then(response => {
+				this.setState(
+					{
+						personalInformation: {
+							description: response.data[0].description,
+							profileImage: response.data[0].profile_image,
+							location: response.data[0].location
+						}
+					},
+					() => console.log(this.state)
+				);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+	}
+
+	_getPersonalCv () {
+
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance
+			.get("http://localhost:3000/personal/get/cv")
+			.then(response => {
+				this.setState(
+					{
+						personalCv: {
+							file: response.data[0].file,
+							title: response.data[0].title
+						}
+					},
+					() => console.log(this.state)
+				);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+	}
+
+	_getPersonalEducation() {
+
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance
+			.get("http://localhost:3000/personal/get/education")
+			.then(response => {
+				this.setState(
+					{
+						personalEducation: response.data
+					},
+					() => console.log(this.state)
+				);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+	}
+
+	_pushPersonalEducation() {
+		if (this.state.personalEducation) {
+			let arr = [];
+
+			this.state.personalEducation.forEach((item, index) => {
+				if(index % 2 == 0) {
+					arr.push(
+						<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature">
+							<div className="aboutme-card__content--description">
+								<div className="title  title--alt">
+									0{index + 1}.
+							</div>
+								<div className="title-placeholder">
+									{item.position}
+								</div>
+								<div className="content">
+									{item.date_start}-{item.date_end} |{' '}
+									<b>{item.title}</b>
+								</div>
+							</div>
+						</div>
+					);
+				}
+				else {
+					arr.push(
+						<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature  aboutme-feature--alt">
+							<div className="aboutme-card__content--description">
+								<div className="title  title--alt">
+									0{index + 1}.
+							</div>
+								<div className="title-placeholder">
+									{item.position}
+								</div>
+								<div className="content">
+									{item.date_start}-{item.date_end} |{' '}
+									<b>{item.title}</b>
+								</div>
+							</div>
+						</div>
+					);
+				}
+				
+			})
+
+			return arr;
+		}
+	}
+
+	_getPersonalLanguages() {
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance
+			.get("http://localhost:3000/personal/get/languages")
+			.then(response => {
+				this.setState(
+					{
+						personalLanguages: response.data
+					},
+					() => console.log(this.state)
+				);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	}
+
+	_pushPersonalLanguagesFirst() {
+		if (this.state.personalLanguages) {
+			let arr = [];
+
+			this.state.personalLanguages.forEach((item, index) => {
+				if (index < this.state.personalLanguages.length / 2){
+					arr.push(
+						<div className="content">
+							{item.title}
+					</div>
+					);
+				}
+				
+			})
+			return arr;
+		}
+	}
+	_pushPersonalLanguagesSecond() {
+		if (this.state.personalLanguages) {
+			let arr = [];
+
+			this.state.personalLanguages.forEach((item, index) => {
+				if (index >= this.state.personalLanguages.length / 2) {
+					arr.push(
+						<div className="content">
+							{item.title}
+					</div>
+					);
+				}
+
+			})
+			return arr;
+		}
+	}
 	render() {
 		return (
 			<>
@@ -33,28 +226,18 @@ class Aboutme extends Component {
 											<div className="container__col-xl-4  container__col-lg-4  container__col-md-4  container__col-12">
 												<div className="aboutme-card__content--image">
 													<img
-														src={require('../../assets/bg-main.png')}
-														alt=""
+														src={this.state.personalInformation.profileImage}
+														alt={this.state.personalInformation.location}
 													/>
 												</div>
 											</div>
 											<div className="container__col-xl-7  container__col-lg-7  container__col-md-7  container__col-12">
 												<div className="aboutme-card__content--description">
 													<div className="title">
-														Brasov, RO
+														{this.state.personalInformation.location}
 													</div>
 													<div className="content">
-														Lorem ipsum dolor sit
-														amet consectetur
-														adipisicing elit. Dolor,
-														expedita? Blanditiis
-														nesciunt doloribus neque
-														odio ullam ad temporibus
-														optio, facere,
-														aspernatur explicabo eum
-														id modi? Ipsum iste
-														assumenda quia
-														blanditiis.
+														{this.state.personalInformation.description}
 													</div>
 												</div>
 											</div>
@@ -88,7 +271,7 @@ class Aboutme extends Component {
 																	<MdTimelapse />
 																</div>
 																<div className="feature-content">
-																	5 Years Job
+																	5+ Years Job
 																	Experience
 																</div>
 															</div>
@@ -192,90 +375,7 @@ class Aboutme extends Component {
 									</div>
 									<div className="container--fluid">
 										<div className="container__row">
-											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature">
-												<div className="aboutme-card__content--description">
-													<div className="title  title--alt">
-														04.
-													</div>
-													<div className="title-placeholder">
-														App Development
-													</div>
-													<div className="content">
-														2020-2020 |{' '}
-														<b>COMPANY</b>
-													</div>
-												</div>
-											</div>
-											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature  aboutme-feature--alt">
-												<div className="aboutme-card__content--description">
-													<div className="title  title--alt">
-														04.
-													</div>
-													<div className="title-placeholder">
-														App Development
-													</div>
-													<div className="content">
-														2020-2020 |{' '}
-														<b>COMPANY</b>
-													</div>
-												</div>
-											</div>
-											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature">
-												<div className="aboutme-card__content--description">
-													<div className="title  title--alt">
-														04.
-													</div>
-													<div className="title-placeholder">
-														App Development
-													</div>
-													<div className="content">
-														2020-2020 |{' '}
-														<b>COMPANY</b>
-													</div>
-												</div>
-											</div>
-											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature  aboutme-feature--alt">
-												<div className="aboutme-card__content--description">
-													<div className="title  title--alt">
-														04.
-													</div>
-													<div className="title-placeholder">
-														App Development
-													</div>
-													<div className="content">
-														2020-2020 |{' '}
-														<b>COMPANY</b>
-													</div>
-												</div>
-											</div>
-											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature">
-												<div className="aboutme-card__content--description">
-													<div className="title  title--alt">
-														04.
-													</div>
-													<div className="title-placeholder">
-														App Development
-													</div>
-													<div className="content">
-														2020-2020 |{' '}
-														<b>COMPANY</b>
-													</div>
-												</div>
-											</div>
-											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-6  aboutme-feature  aboutme-feature--alt">
-												<div className="aboutme-card__content--description">
-													<div className="title  title--alt">
-														04.
-													</div>
-													<div className="title-placeholder">
-														App Development
-													</div>
-													<div className="content">
-														2020-2020 |{' '}
-														<b>COMPANY</b>
-													</div>
-												</div>
-											</div>
+											{this._pushPersonalEducation()}
 										</div>
 									</div>
 								</div>
@@ -290,46 +390,12 @@ class Aboutme extends Component {
 										<div className="container__row">
 											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-12">
 												<div className="aboutme-card__content--description  aboutme-card__content--description-alt">
-													<div className="content">
-														HTML5 & SCSS
-													</div>
-													<div className="content">
-														JAVASCRIPT
-													</div>
-													<div className="content">
-														React.JS
-													</div>
-													<div className="content">
-														React Native
-													</div>
-													<div className="content">
-														Node.JS
-													</div>
-													<div className="content">
-														C/C++
-													</div>
+													{this._pushPersonalLanguagesFirst()}
 												</div>
 											</div>
 											<div className="container__col-xl-6  container__col-lg-6  container__col-md-6  container__col-12">
 												<div className="aboutme-card__content--description  aboutme-card__content--description-alt">
-													<div className="content">
-														Photoshop
-													</div>
-													<div className="content">
-														Abode xd
-													</div>
-													<div className="content">
-														Lightroom CC
-													</div>
-													<div className="content">
-														PHP & mysql
-													</div>
-													<div className="content">
-														firebase
-													</div>
-													<div className="content">
-														Python
-													</div>
+													{this._pushPersonalLanguagesSecond()}
 												</div>
 											</div>
 										</div>

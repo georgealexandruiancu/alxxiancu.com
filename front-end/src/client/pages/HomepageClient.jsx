@@ -8,6 +8,7 @@ import Projects from 				"../components/Projects";
 import Minituts from 				"../components/Minituts";
 import Blog from 					"../components/Blog";
 import Contact from 				"../components/Contact";
+import Footer from 				"../components/Footer";
 
 import * as UI from 				"../functions/iancu.slider";
 
@@ -39,6 +40,7 @@ class HomepageClient extends Component {
 				<Minituts />
 				<Blog />
 				<Contact />
+				<Footer />
 			</>
 		);
 	}

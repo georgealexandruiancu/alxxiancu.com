@@ -46,18 +46,30 @@ class Minituts extends Component {
 		let array = [];
 
 		await data.data.user.edge_owner_to_timeline_media.edges.map((item, index) => {
-			array.push({
-				id: index,
-				photo: item.node.display_url,
-				likes: item.node.edge_media_preview_like.count,
-				description: item.node.edge_media_to_caption.edges[0] ? item.node.edge_media_to_caption.edges[0].node.text : ""
-			});
+			if (item.node.edge_media_to_caption.edges[0]) {
+				if (item.node.edge_media_to_caption.edges[0].node.text.includes("<MiniTuts")) {
+					array.push({
+						id: index,
+						photo: item.node.display_url,
+						likes: item.node.edge_media_preview_like.count,
+						description: item.node.edge_media_to_caption.edges[0] ? item.node.edge_media_to_caption.edges[0].node.text : ""
+					});
+				}
+			}
 		});
 
 		return array;
 	}
 
 	pushCarouselItems() {
+		if (!this.state.instaPosts.length) {
+			return (
+				<h1 className="minituts--nocontent">
+					No 🍌 joined this section 🙈
+				</h1>
+			)
+		}
+
 		if (this.state.instaPosts !== "") {
 			var slides = [];
 			this.state.instaPosts.map((item, index) => {
@@ -100,8 +112,9 @@ class Minituts extends Component {
 							showThumbs={false}
 							showIndicators={false}
 						>
-							{this.pushCarouselItems()}
+							{this.state.instaPosts.length ? this.pushCarouselItems() : ""}
 						</Carousel>
+						{!this.state.instaPosts.length ? this.pushCarouselItems() : ""}
 					</div>
 				</div>
 			</>

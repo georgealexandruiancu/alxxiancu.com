@@ -301,6 +301,21 @@
   }
 }
 
+.background-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 2.2em;
+  color: white;
+  max-width: 500px;
+  min-width: 300px;
+  z-index: 999;
+  text-align: center;
+  font-weight: 700;
+}
+
 .background-wrapper {
   height: 100%;
 }
@@ -539,6 +554,64 @@
   border-left: 2px solid #4CD964;
 }
 
+.projects-wrapper {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.projects-wrapper .container__holder-card {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+}
+
+.projects-wrapper .container__holder-row {
+  margin-top: 10px;
+}
+
+.projects-card {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 100%;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  background-color: #4CD964;
+  color: #000000;
+  text-align: center;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.projects-card:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px 1px #ffffff;
+          box-shadow: 0px 0px 4px 1px #ffffff;
+}
+
+.projects-card .image {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projects-card .image img {
+  height: 200px;
+}
+
+.projects-card .title {
+  font-weight: 600;
+}
+
+.projects-card .description {
+  padding-top: 5px;
+  font-size: .9em;
+}
+
 @-webkit-keyframes makeFull {
   from {
     height: 0;
@@ -559,6 +632,14 @@
     height: 50%;
     opacity: 1;
   }
+}
+
+.minituts--nocontent {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.7em;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 @media (min-width: 1112px) {
@@ -797,5 +878,39 @@
   -webkit-transform: translateX(-50%);
   transform: translate(-50%);
   bottom: 20px;
+}
+
+.contact-wrapper .contact-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 3em;
+  color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.contact-wrapper .contact-container a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contact-wrapper .contact-container a svg:hover {
+  color: #4CD964;
+  cursor: pointer;
+}
+
+.footer-wrapper {
+  text-align: center;
+}
+
+.footer-wrapper .footer-container {
+  font-size: 1.1em;
+  color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 /*# sourceMappingURL=HomepageClient.css.map */
