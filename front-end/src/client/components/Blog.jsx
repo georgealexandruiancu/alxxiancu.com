@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import { Carousel } from 'react-responsive-carousel';
 
@@ -25,10 +26,60 @@ class Blog extends Component {
 				)
 			});
 		});
+
+		this._getAllPosts();
 	}
 
 	componentWillUnmount () {
 		window.removeEventListener('resize');
+	}
+
+	_getAllPosts() {
+		var instance = axios.create({
+			withCredentials: true
+		});
+
+		instance
+			.get("http://localhost:3000/blog")
+			.then(response => {
+				this.setState(
+					{
+						blog: response.data
+					},
+					() => console.log(this.state)
+				);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	}
+
+	_pushPosts() {
+		if (this.state.blog) {
+			let arr = [];
+
+			this.state.blog.forEach((item, index) => {
+				if (index < 9) {
+					arr.push(
+						<>
+							<div className="blog-slide">
+								<img src={item.photo} />
+								<div className="blog-slide__wrapper  is-active">
+									<div className="blog-slide__title">
+										{item.title}
+									</div>
+								</div>
+								<div className="blog-slide__button  o-button">
+									View post
+								</div>
+							</div>
+						</>
+					);
+				}
+			})
+
+			return arr;
+		}
 	}
 
 	render() {
@@ -37,44 +88,21 @@ class Blog extends Component {
 				<div className="o-title-section">Blog</div>
 				<Divider />
 				<div className="blog-container">
-					<Carousel
-						showArrows={false}
-						emulateTouch
-						centerMode
-						centerSlidePercentage={this.state.vw > 1112 ? 50 : 100}
-						showStatus={false}
-						showThumbs={false}
-						showIndicators={false}
-					>
-						<div className="blog-slide">
-							<img src={require("../../assets/test1.jpg")} />
-							<div className="blog-slide__wrapper  is-active">
-								<div className="blog-slide__title">
-									2b || !2b Web Developer in
-									Romaniaasdasdasdasdadadasdasdasdasdsasdasdasdasdadadadasdasdasdadasdasdasdasd
-								</div>
-								<div className="blog-slide__button  o-button">
-									View post
-								</div>
-							</div>
-						</div>
-						<div className="blog-slide">
-							<img src={require("../../assets/test1.jpg")} />
-							<div className="blog-slide__wrapper  is-active">
-								<div className="blog-slide__title">
-									2b || !2b Web Developer in Romania
-								</div>
-							</div>
-						</div>
-						<div className="blog-slide">
-							<img src={require("../../assets/test1.jpg")} />
-							<div className="blog-slide__wrapper  is-active">
-								<div className="blog-slide__title">
-									2b || !2b Web Developer in Romania
-								</div>
-							</div>
-						</div>
-					</Carousel>
+					{this.state.blog ?
+						<Carousel
+							showArrows={false}
+							emulateTouch
+							centerMode
+							centerSlidePercentage={this.state.vw > 1112 ? 25 : 100}
+							showStatus={false}
+							showThumbs={false}
+							showIndicators={false}
+						>
+							{this._pushPosts()}
+						</Carousel>
+						:
+						<></>
+					}
 				</div>
 			</div>
 		);

@@ -86,7 +86,7 @@ class AdminProjects extends Component {
 		axios
 			.post("http://localhost:3000/projects/add", {
 				photo: this.state.addPost.photo,
-				description: this.state.addPost.description,
+				description: this.state.addPost.shortDescription,
 				title: this.state.addPost.title
 			})
 			.then(response => {

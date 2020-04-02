@@ -11,6 +11,7 @@
 		.container__holder-card {
 			box-sizing: border-box;
 			padding: $inner-gutter--half;
+			position: relative;
 		}
 
 		.container__holder-row {
@@ -23,28 +24,42 @@
 		padding-top: $inner-gutter;
 		padding-bottom: $inner-gutter;
 		box-sizing: content-box;
-		width: 100%;
+		width: 80%;
 		min-height: 300px;
 		max-height: 300px;
-		overflow: hidden;
 		background-color: $color-global-middle;
 		color: $color-global-negative;
 		text-align: center;
 		transition: all .3s;
 		cursor: pointer;
+		position: relative;
+		transform: translateX(10%);
 
 		&:hover {
-			transform: scale(1.05);
-			border-radius: 5px;
-			box-shadow: 0px 0px 4px 1px $color-global-positive;
+			transform: scale(1.01);
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+
+			.image {
+				left: 0%;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
 		}
 
 		.image {
-			margin: 0 auto;
+			@include center(vertical, absolute);
 			text-align: center;
+			left: -20%;
+			padding: $inner-gutter;
+			background-color: $color-global-positive;
+			width: 200px;
+			height: 200px;
+			transition: all .3s;
 
 			img {
-				height: 200px;
+				@include center(both, absolute);
+				width: 75%;
 			}
 		}
 
@@ -54,7 +69,11 @@
 
 		.description {
 			padding-top: $inner-gutter--quarter;
-			font-size: .9em;
+			font-size: .8em;
+			position: absolute;
+			bottom: $inner-gutter--half;
+			text-align: center;
+			width: 100%;
 		}
 	}
 }

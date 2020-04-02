@@ -40,19 +40,21 @@ class Projects extends Component {
 			this.state.projects.forEach((item, index) => {
 				if(index < 9){
 					arr.push(
-						<div className="container__col-xl-4 container__col-lg-4 container__col-md-6 container__col-12  container__holder-card">
-							<div className="projects-card">
-								<div className="image">
-									<img src={item.photo} alt="" />
-								</div>
-								<div className="title">
-									{item.title}
-								</div>
-								<div className="description">
-									{item.description}
+						<>
+							<div className="container__col-xl-4 container__col-lg-4 container__col-md-6 container__col-12  container__holder-card">
+								<div className="projects-card">
+									<div className="image">
+										<img src={item.photo} alt={item.title} />
+									</div>
+									<div className="title">
+										{item.title}
+									</div>
+									<div className="description">
+										{item.description}
+									</div>
 								</div>
 							</div>
-						</div>
+						</>
 					);
 				}
 			})
