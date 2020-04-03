@@ -149,7 +149,7 @@ class Aboutme extends Component {
 						</div>
 					);
 				}
-				
+
 			})
 
 			return arr;
@@ -188,7 +188,7 @@ class Aboutme extends Component {
 					</div>
 					);
 				}
-				
+
 			})
 			return arr;
 		}
@@ -299,12 +299,8 @@ class Aboutme extends Component {
 														Web Design
 													</div>
 													<div className="content">
-														Lorem ipsum dolor sit
-														amet consectetur,
-														adipisicing elit. Eaque
-														accusamus fuga aut
-														corporis temporibus
-														saepe.
+														From a wireframe to entire web & app design.
+														Mobile friendly, color palletes
 													</div>
 												</div>
 											</div>
@@ -317,12 +313,7 @@ class Aboutme extends Component {
 														Web Development
 													</div>
 													<div className="content">
-														Lorem ipsum dolor sit
-														amet consectetur,
-														adipisicing elit. Eaque
-														accusamus fuga aut
-														corporis temporibus
-														saepe.
+														From a simple website to a complex app, I will create from scratch your personal need.
 													</div>
 												</div>
 											</div>
@@ -335,12 +326,7 @@ class Aboutme extends Component {
 														Photography
 													</div>
 													<div className="content">
-														Lorem ipsum dolor sit
-														amet consectetur,
-														adipisicing elit. Eaque
-														accusamus fuga aut
-														corporis temporibus
-														saepe.
+														I have a passion for portraits, streets, peoples since high school
 													</div>
 												</div>
 											</div>
@@ -353,12 +339,7 @@ class Aboutme extends Component {
 														App Development
 													</div>
 													<div className="content">
-														Lorem ipsum dolor sit
-														amet consectetur,
-														adipisicing elit. Eaque
-														accusamus fuga aut
-														corporis temporibus
-														saepe.
+														Let's think togheter for a full implementation from stratch to deploy.
 													</div>
 												</div>
 											</div>

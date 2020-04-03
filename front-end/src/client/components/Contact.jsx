@@ -23,16 +23,16 @@ class Contact extends Component {
 					<div className="container">
 						<div className="container__row">
 							<div className="container__col-12  contact-container">
-								<a href="">
+								<a href="https://www.linkedin.com/in/georgealexandruiancu/" target="_blank">
 									<FaLinkedin />
 								</a>
-								<a href="">
+								<a href="https://github.com/georgealexandruiancu" target="_blank">
 									<FaGithubAlt />
 								</a>
-								<a href="">
+								<a href="https://www.instagram.com/alxxiancu/" target="_blank">
 									<FaInstagram />
 								</a>
-								<a href="">
+								<a href="https://www.facebook.com/alxxiancu" target="_blank">
 									<FaFacebookSquare />
 								</a>
 							</div>
